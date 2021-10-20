@@ -1,4 +1,40 @@
-h1 {
-    font-size: 12px;
-  }
-  
+.pageheader {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: 18px;
+  padding: 10px 15px;
+}
+
+.page1 {
+  display: flex;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+.page2 {
+  display: none;
+}
+/* button click into display none for page1article into and display block for page2article */
+
+.questionstyle1 {
+  display: flex;
+}
+
+.questionstyle2 {
+}
+
+.questionstyle3 {
+}
+
+.questionstyle4 {
+}
