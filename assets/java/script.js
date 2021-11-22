@@ -1,16 +1,40 @@
-const startGame = document.querySelector("#startGameButton")
+const startGame = startGame();
+const gameButton = document.querySelector("#startGameButton");
+const buttonAnswers = document.getElementById("#buttonAnswers");
 
-const answerDisplay = document.createElement('i')
-answerDisplay.addEventListener('click', generatelist);
-
-generateList() {
-    
+function startGame() {
+  buttonAnswers.setAttribute("visibility: visible");
+  totalTime();
+  presentNextQuestion(index);
+  startButton.disabled = true;
 }
 
+const questionOne = {
+  question: "Which symbol signifies that you're using an ID in javascript?",
+  answer1: "#",
+  answer2: "*",
+  answer3: "!",
+  answer4: "@",
+};
 
-localStorage
+const questionTwo = {
+  question: "When was SQL developed?",
+  answer1: "1974 by Edgar Codd",
+  answer2: "1972 by Alan Kay",
+  answer3: "1979 by Oracle",
+  answer4: "1975 by Guy Steele and Gerry Sussman",
+};
+const questionThree = {
+  question: "What is the symbol for calling a function?",
+  answer1: "()",
+  answer2: "++",
+  answer3: "&&",
+  answer4: "${}",
+};
+
+const questionList = [questionOne, questionTwo, questionThree];
+
 // activity 22//
-
 
 // storing as an array is storing objects is one way to create question storage
 
@@ -29,4 +53,3 @@ localStorage
 //     return win
 
 // function start cloc
-    
