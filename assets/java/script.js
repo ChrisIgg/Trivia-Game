@@ -1,15 +1,16 @@
 const startGame = startGame();
 const gameButton = document.querySelector("#startGameButton");
-const buttonAnswers = document.getElementById("#buttonAnswers");
+const questionDisplay = document.getElementById("#mainbox");
+const timer = document.getElementById("#timer");
+const pageTwo = document.getElementById("#pageTwo");
 
 function startGame() {
-  buttonAnswers.setAttribute("visibility: visible");
+  questionDisplay.setAttribute("visibility: visible");
   totalTime();
   presentNextQuestion(index);
-  startButton.disabled = true;
 }
 
-const questionOne = {
+const firstQuestion = {
   question: "Which symbol signifies that you're using an ID in javascript?",
   answer1: "#",
   answer2: "*",
@@ -31,8 +32,28 @@ const questionThree = {
   answer3: "&&",
   answer4: "${}",
 };
+console.log(questionThree[1]);
 
 const questionList = [questionOne, questionTwo, questionThree];
+
+function totalTime() {
+  var timerInterval = setInterval(function () {
+    time--;
+    timerBox.textContent = time;
+
+    if (time === 0) {
+      clearInterval(timerInterval);
+      time = 0;
+      timer.textContent = time;
+      quizOver();
+    }
+  }, 1000);
+}
+
+function quizOver() {
+  questionDisplay.setAttribute("visibility: hidden");
+  pageTwo.textContent = "Game Over";
+}
 
 // activity 22//
 

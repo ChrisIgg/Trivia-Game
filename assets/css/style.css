@@ -20,12 +20,12 @@ h4 {
   font-size: 24px;
 }
 
-.page2 {
+/* .page2 {
   display: none;
 }
 /* button click into display none for page1article into and display block for page2article */
 
-.questionstyle1 {
+/* .questionstyle1 {
   display: flex;
 }
 
@@ -36,4 +36,7 @@ h4 {
 }
 
 .questionstyle4 {
+} */
+* .mainbox {
+  visibility: hidden;
 }
