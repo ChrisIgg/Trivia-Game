@@ -1,24 +1,23 @@
 const gameButton = document.querySelector("#startGameButton");
-const questionDisplay = document.getElementById("#mainbox");
-const timer = document.getElementById("#timer");
-const pageTwo = document.getElementById("#pageTwo");
-const firstQuestion = document.getElementById("#questionOne");
-const secondQuestion = document.getElementById("#questionTwo");
-const thirdQuestion = document.getElementById("#questionThree");
-const fourthQuestion = document.getElementById("#questionFour");
+const questionDisplay = document.getElementById("mainbox");
+const timer = document.getElementById("timer");
+const theQuestion = document.getElementById("firstQuestion");
+const firstQuestion = document.getElementById("questionOne");
+const secondQuestion = document.getElementById("questionTwo");
+const thirdQuestion = document.getElementById("questionThree");
+const fourthQuestion = document.getElementById("questionFour");
 
 gameButton.addEventListener("click", startGame);
 
 function startGame() {
-  getRandomQuestion();
-  let randomQuestion = "";
-  pageTwo.textContent = randomQuestion.question;
+  let randomQuestion = getRandomQuestion();
+  theQuestion.textContent = randomQuestion.question;
 
-  firstQuestion.textcontent = randomQuestion.choices[0].text;
-  secondQuestion.textcontent = randomQuestion.choices[1].text;
-  thirdQuestion.textcontent = randomQuestion.choices[2].text;
-  fourthQuestion.textcontent = randomQuestion.choices[3].text;
-  questionDisplay.setAttribute("visibility: visible");
+  firstQuestion.textContent = randomQuestion.choices[0].text;
+  secondQuestion.textContent = randomQuestion.choices[1].text;
+  thirdQuestion.textContent = randomQuestion.choices[2].text;
+  fourthQuestion.textContent = randomQuestion.choices[3].text;
+  questionDisplay.setAttribute("style", "visibility: visible");
   console.log(firstQuestion);
   totalTime();
 }
@@ -44,11 +43,12 @@ const questionsArray = [
 ];
 
 // const questionList = [questionOne, questionTwo, questionThree];
+let time = 75;
 
 function totalTime() {
   var timerInterval = setInterval(function () {
     time--;
-    timerBox.textContent = time;
+    timer.textContent = time;
 
     if (time === 0) {
       clearInterval(timerInterval);
@@ -64,7 +64,6 @@ function quizOver() {
   pageTwo.textContent = "Game Over";
 }
 
-getRandomQuestion();
 function getRandomQuestion() {
   const index = Math.floor(Math.random() * questionsArray.length);
   const randomQuestion = questionsArray[index];
