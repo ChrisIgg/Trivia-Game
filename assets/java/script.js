@@ -1,40 +1,49 @@
-const startGame = startGame();
 const gameButton = document.querySelector("#startGameButton");
 const questionDisplay = document.getElementById("#mainbox");
 const timer = document.getElementById("#timer");
 const pageTwo = document.getElementById("#pageTwo");
+const firstQuestion = document.getElementById("#questionOne");
+const secondQuestion = document.getElementById("#questionTwo");
+const thirdQuestion = document.getElementById("#questionThree");
+const fourthQuestion = document.getElementById("#questionFour");
+
+gameButton.addEventListener("click", startGame);
 
 function startGame() {
+  getRandomQuestion();
+  let randomQuestion = "";
+  pageTwo.textContent = randomQuestion.question;
+
+  firstQuestion.textcontent = randomQuestion.choices[0].text;
+  secondQuestion.textcontent = randomQuestion.choices[1].text;
+  thirdQuestion.textcontent = randomQuestion.choices[2].text;
+  fourthQuestion.textcontent = randomQuestion.choices[3].text;
   questionDisplay.setAttribute("visibility: visible");
+  console.log(firstQuestion);
   totalTime();
-  presentNextQuestion(index);
 }
 
-const firstQuestion = {
-  question: "Which symbol signifies that you're using an ID in javascript?",
-  answer1: "#",
-  answer2: "*",
-  answer3: "!",
-  answer4: "@",
-};
+const questionsArray = [
+  {
+    question: "Which symbol signifies that you're using an ID in javascript?",
+    choices: [{ text: "#" }, { text: "*" }, { text: "!" }, { text: "@" }],
+  },
+  {
+    question: "When was SQL developed?",
+    choices: [
+      { text: "1974 by Edgar Codd" },
+      { text: "1972 by Alan Kay" },
+      { text: "1979 by Oracle" },
+      { text: "1975 by Guy Steele and Gerry Sussman" },
+    ],
+  },
+  {
+    question: "What is the symbol for calling a function?",
+    choices: [{ text: "()" }, { text: "++" }, { text: "&&" }, { text: "${}" }],
+  },
+];
 
-const questionTwo = {
-  question: "When was SQL developed?",
-  answer1: "1974 by Edgar Codd",
-  answer2: "1972 by Alan Kay",
-  answer3: "1979 by Oracle",
-  answer4: "1975 by Guy Steele and Gerry Sussman",
-};
-const questionThree = {
-  question: "What is the symbol for calling a function?",
-  answer1: "()",
-  answer2: "++",
-  answer3: "&&",
-  answer4: "${}",
-};
-console.log(questionThree[1]);
-
-const questionList = [questionOne, questionTwo, questionThree];
+// const questionList = [questionOne, questionTwo, questionThree];
 
 function totalTime() {
   var timerInterval = setInterval(function () {
@@ -53,6 +62,14 @@ function totalTime() {
 function quizOver() {
   questionDisplay.setAttribute("visibility: hidden");
   pageTwo.textContent = "Game Over";
+}
+
+getRandomQuestion();
+function getRandomQuestion() {
+  const index = Math.floor(Math.random() * questionsArray.length);
+  const randomQuestion = questionsArray[index];
+  console.log(randomQuestion);
+  return randomQuestion;
 }
 
 // activity 22//
@@ -74,3 +91,5 @@ function quizOver() {
 //     return win
 
 // function start cloc
+
+// start the quiz
